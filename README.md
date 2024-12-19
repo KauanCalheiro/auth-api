@@ -1,78 +1,78 @@
-# API de Autenticação
+# Auth API
 
 ---
 
-## Como Iniciar o Projeto
+## How to Start the Project
 
-1. Certifique-se de ter o PHP (>= 8.3), Composer e um banco de dados relacional de sua escolha (como MySQL, PostgreSQL ou SQLite) instalados em sua máquina.
+1. Ensure you have PHP (>= 8.3), Composer, and a relational database of your choice (such as MySQL, PostgreSQL, or SQLite) installed on your machine.
 
-2. Clone o repositório do projeto:
+2. Clone the project repository:
 
    ```bash
    git clone https://github.com/KauanCalheiro/auth-api.git
    ```
 
-3. Acesse o diretório do projeto:
+3. Navigate to the project directory:
 
    ```bash
    cd auth-api
    ```
 
-4. Instale as dependências do Composer:
+4. Install Composer dependencies:
 
    ```bash
    composer install
    ```
 
-5. Copie o arquivo `.env.example` para `.env`:
+5. Copy the `.env.example` file to `.env`:
 
    ```bash
    cp .env.example .env
    ```
 
-6. Configure o arquivo `.env` com as credenciais do banco de dados.
+6. Configure the `.env` file with your database credentials.
 
-7. Gere a chave da aplicação:
+7. Generate the application key:
 
    ```bash
    php artisan key:generate
    ```
 
-8. Execute as migrations para configurar o banco de dados:
+8. Run migrations to set up the database:
 
    ```bash
    php artisan migrate
    ```
 
-9. Inicie o servidor local:
+9. Start the local server:
 
    ```bash
    php artisan serve
    ```
 
-10. Acesse a aplicação em seu navegador em `http://127.0.0.1:8000`.
+10. Access the application in your browser at `http://127.0.0.1:8000`.
 
 ---
 
-## Importando a Collection no Postman
+## Importing the Collection into Postman
 
-1. Certifique-se de ter o [Postman](https://www.postman.com/) instalado.
-2. Na raiz do projeto, você encontrará um arquivo chamado `Auth.postman_collection.json`.
-3. Abra o Postman e siga os passos:
-   - Clique em **Importar**.
-   - Selecione o arquivo `Auth.postman_collection.json`.
-   - Clique em **Importar**.
-4. A collection será adicionada ao seu Postman, com todos os endpoints configurados.
+1. Ensure you have [Postman](https://www.postman.com/) installed.
+2. In the project root, you will find a file named `Auth.postman_collection.json`.
+3. Open Postman and follow these steps:
+   - Click on **Import**.
+   - Select the `Auth.postman_collection.json` file.
+   - Click **Import**.
+4. The collection will be added to your Postman, with all endpoints configured.
 
 ---
 
-## Endpoints Disponíveis
+## Available Endpoints
 
 ### 1. Login
 
 **URL:** `{{URL}}/auth/login`
 
-**Método:** `POST`
+**Method:** `POST`
 
 **Headers:**
 
@@ -82,8 +82,8 @@
 
 ```json
 {
-  "email": "seuemail@dominio.com",
-  "password": "suasenha",
+  "email": "your-email@domain.com",
+  "password": "your-password",
   "remember_me": false
 }
 ```
@@ -94,7 +94,7 @@
 
 **URL:** `{{URL}}/auth/logout`
 
-**Método:** `GET`
+**Method:** `GET`
 
 **Headers:**
 
@@ -103,11 +103,11 @@
 
 <br>
 
-### 3. Registrar Usuário
+### 3. Register User
 
 **URL:** `{{URL}}/auth/register`
 
-**Método:** `POST`
+**Method:** `POST`
 
 **Headers:**
 
@@ -117,35 +117,31 @@
 
 ```json
 {
-  "name": "Nome do Usuário",
-  "email": "email@dominio.com",
-  "password": "senha",
-  "c_password": "senha"
+  "name": "User Name",
+  "email": "email@domain.com",
+  "password": "password",
+  "c_password": "password"
 }
 ```
 
 <br>
 
-### 4. Obter Usuário Autenticado
+### 4. Get Authenticated User
 
 **URL:** `{{URL}}/auth/user`
 
-**Método:** `GET`
+**Method:** `GET`
 
 **Headers:**
 
 - `Accept: application/json`
 - `Authorization: Bearer {token}`
 
-
-
-
-
 ---
 
-## Observações
+## Notes
 
-- Substitua `{{URL}}` pela URL base da sua aplicação.
-- Certifique-se de configurar as variáveis de ambiente corretamente no Postman para facilitar os testes.
-- A collection disponibiliza exemplos de respostas esperadas para cada endpoint.
+- Replace `{{URL}}` with the base URL of your application.
+- Ensure you configure the environment variables correctly in Postman to facilitate testing.
+- The collection provides examples of expected responses for each endpoint.
 
